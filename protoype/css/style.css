@@ -103,12 +103,15 @@ Main Components
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
-    padding-top: 50px;
+    /* THIS IS THE PARAMETER YOU SHOULD CHANGE IN ORDER TO CHANGE TABLE WIDTH */
+    width: 62%;
+    /* YOU NEED TO CHANGE THIS TO CHANGE CELL HEIGHT*/
+    padding-top: 25px;
   }
   .cd-schedule .timeline li {
     position: relative;
-    height: 50px;
+    /* YOU NEED TO CHANGE THIS TO CHANGE CELL HEIGHT*/
+    height: 25px;
   }
   .cd-schedule .timeline li::after {
     /* this is used to create the table horizontal lines */
@@ -156,6 +159,8 @@ Main Components
 .cd-schedule .events .top-info {
   width: 100%;
   padding: 0 5%;
+  background-color: #EAEAEA;
+  font-size: 1.5rem;
 }
 
 .cd-schedule .events .top-info > span {
@@ -222,7 +227,8 @@ Main Components
     width: 100%;
   }
   .cd-schedule .events .events-group {
-    width: 16.6666%;
+    /* THIS IS THE PARAMETER YOU SHOULD CHANGE IN ORDER TO CHANGE CELL WIDTH */
+    width: 10%;
     float: left;
     border: 1px solid #EAEAEA;
     /* reset style */
@@ -234,7 +240,8 @@ Main Components
   .cd-schedule .events .top-info {
     /* vertically center its content */
     display: table;
-    height: 50px;
+    /* YOU NEED TO CHANGE THIS TO CHANGE CELL HEIGHT*/
+    height: 25px;
     border-bottom: 1px solid #EAEAEA;
     /* reset style */
     padding: 0;
@@ -250,7 +257,8 @@ Main Components
     margin-bottom: 0;
   }
   .cd-schedule .events .events-group > ul {
-    height: 1250px;
+    /* YOU NEED TO CHANGE THIS TO CHANGE TABLE HEIGHT*/
+    height: 625px;
     /* reset style */
     display: block;
     overflow: visible;
@@ -280,7 +288,7 @@ Main Components
     margin-right: 0;
   }
   .cd-schedule .events .single-event a {
-    padding: 1.2em;
+    padding-top: 0.6em;
   }
   .cd-schedule .events .single-event:last-of-type {
     /* reset style */
@@ -316,18 +324,18 @@ Main Components
 }
 
 .cd-schedule .event-name {
-  font-size: 2.4rem;
+  font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 800px) {
   .cd-schedule .event-name {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
 .cd-schedule .event-date {
   /* they are not included in the the HTML but added using JavScript */
-  font-size: 1.4rem;
+  font-size: 1rem;
   opacity: .7;
   line-height: 1.2;
   margin-bottom: .2em;
@@ -644,4 +652,6 @@ Main Components
 
 .event-info {
    color: #DDD;
+   font-size: 1.1rem;
+   margin-top: 10px;
 }

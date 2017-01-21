@@ -15,6 +15,8 @@ jQuery(document).ready(function($){
 		//need to store delta (in our case half hour) timestamp
 		this.timelineUnitDuration = getScheduleTimestamp(this.timelineItems.eq(1).text()) - getScheduleTimestamp(this.timelineItems.eq(0).text());
 
+		//setTimelineBackground(this.timelineItems);
+
 		this.eventsWrapper = this.element.find('.events');
 		this.eventsGroup = this.eventsWrapper.find('.events-group');
 		this.singleEvents = this.eventsGroup.find('.single-event');
@@ -377,5 +379,14 @@ jQuery(document).ready(function($){
 			'-o-transform': value,
 			'transform': value
 		});
+	}
+
+	function setTimelineBackground(timeline) {
+		console.log(timeline.length);
+		for(var item = 0; item < timeline.length; ++item){
+			if(item % 2 == 1)
+				timeline.eq(item).css('background-color', '#F9F9F9');
+		}
+		
 	}
 });
