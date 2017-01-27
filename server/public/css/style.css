@@ -316,9 +316,10 @@ Main Components
     padding-bottom: 15px;
     position: relative;
     float: left;
-    left: 25%;
+    left: 5%;
     top: 50%;
-    width:60%;
+    width:46%;
+    margin-right: 15px;
   }
 }
 
