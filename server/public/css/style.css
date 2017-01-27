@@ -12,6 +12,13 @@ header h1 {
   -webkit-margin-end: 0px;
   font-weight: bold;
 }
+
+header button {
+  float: right;
+  margin-top: 12px;
+  margin-right: 12px;
+}
+
 header {
   height:60px;
   padding-left:1em;
@@ -133,7 +140,7 @@ Main Components
 
 @media only screen and (min-width: 1000px) {
   .cd-schedule .timeline li::after {
-    width: calc(100% - 60px);
+    width: calc(100% - 0px);
     left: 60px;
   }
   .cd-schedule .timeline li span {
@@ -228,7 +235,7 @@ Main Components
   }
   .cd-schedule .events .events-group {
     /* THIS IS THE PARAMETER YOU SHOULD CHANGE IN ORDER TO CHANGE CELL WIDTH */
-    width: 10%;
+    width: 16.6666667%;
     float: left;
     border: 1px solid #EAEAEA;
     /* reset style */
@@ -298,6 +305,21 @@ Main Components
     /* the .selected-event class is added when an user select the event */
     visibility: hidden;
   }
+
+  .picking {
+    width: 38%;
+    position: relative;
+    float: right;
+  }
+
+  .class_picking {
+    padding-bottom: 15px;
+    position: relative;
+    float: left;
+    left: 25%;
+    top: 50%;
+    width:60%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -305,6 +327,11 @@ Main Components
     /* 60px is the .timeline element width */
     width: calc(100% - 60px);
     margin-left: 60px;
+  }
+  .picking {
+    width: calc(38% - 60px);
+    position: relative;
+    float: right;
   }
 }
 
