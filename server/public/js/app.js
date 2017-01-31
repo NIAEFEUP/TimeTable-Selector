@@ -378,11 +378,14 @@ jQuery(document).ready(function($){
 
     }
 
-    new Vue({
+    vm = new Vue({
         el: '#main',
 
         data: {
-            timetable: []
+            timetable: [],
+            timelineStart: getScheduleTimestamp('08:00'),
+            timelineUnitDuration: 30,
+            eventSlotHeight: 10
         },
 
         mounted: function() {
@@ -400,40 +403,45 @@ jQuery(document).ready(function($){
                                 name: 'GEMP',
                                 teacher: 'LP',
                                 room: 'B319',
-                                class: '4MIEIC01'
+                                class: '4MIEIC01',
+                                type: 'TP'
                             }, {
                                 start: '16:00',
                                 end: '17:00',
                                 name: 'AIAD',
                                 teacher: 'ECO',
                                 room: 'B014',
-                                class: 'COMP_1250'
+                                class: 'COMP_1250',
+                                type: 'T'
                             }
                         ]
                     },
                     {
                      day: 'Terça',
                      lessons: [{
-                             start: '14:00',
-                             end: '16:00',
-                             name: 'MFES',
-                             teacher: 'ARP',
-                             room: 'B002',
-                             class: 'COMP_1250'
+                         start: '14:00',
+                         end: '16:00',
+                         name: 'MFES',
+                         teacher: 'ARP',
+                         room: 'B002',
+                         class: 'COMP_1250',
+                         type: 'T'
                         }, {
-                             start: '16:00',
-                             end: '17:00',
-                             name: 'AIAD',
-                             teacher: 'ECO',
-                             room: 'B010',
-                             class: 'COMP_1250'
+                         start: '16:00',
+                         end: '17:00',
+                         name: 'AIAD',
+                         teacher: 'ECO',
+                         room: 'B010',
+                         class: 'COMP_1250',
+                         type: 'T'
                          }, {
-                             start: '17:00',
-                             end: '20:00',
-                             name: 'LDSO',
-                             teacher: 'NHF',
-                             room: 'B311',
-                             class: '4MIEIC03'
+                         start: '17:00',
+                         end: '20:00',
+                         name: 'LDSO',
+                         teacher: 'NHF',
+                         room: 'B311',
+                         class: '4MIEIC03',
+                         type: 'PL'
                          }
                         ]
                      },
@@ -445,14 +453,16 @@ jQuery(document).ready(function($){
                          name: 'MFES',
                          teacher: 'JPF',
                          room: 'B105',
-                         class: '4MIEIC01'
+                         class: '4MIEIC01',
+                         type: 'TP'
                      },{
                          start: '11:00',
                          end: '13:00',
                          name: 'GEMP',
                          teacher: 'LP',
                          room: 'B010',
-                         class: 'COMP_1250'
+                         class: 'COMP_1250',
+                         type: 'T'
                         }
                      ]
                      },
@@ -464,14 +474,16 @@ jQuery(document).ready(function($){
                          name: 'SINF',
                          teacher: 'JJF',
                          room: 'B014',
-                         class: 'COMP_1250'
+                         class: 'COMP_1250',
+                         type: 'T'
                      },{
                          start: '16:00',
                          end: '18:00',
                          name: 'AIAD',
                          teacher: 'APR',
                          room: 'B105',
-                         class: '4MIEIC01'
+                         class: '4MIEIC01',
+                         type: 'TP'
                      }]
                      },
                      {
@@ -482,14 +494,16 @@ jQuery(document).ready(function($){
                          name: 'SINF',
                          teacher: 'NF',
                          room: 'B203',
-                         class: '4MIEIC02'
+                         class: '4MIEIC02',
+                         type: 'TP'
                      },{
                          start: '14:00',
                          end: '16:00',
                          name: 'LDSO',
                          teacher: 'AMA',
                          room: 'B010',
-                         class: 'COMP_1250'
+                         class: 'COMP_1250',
+                         type: 'T'
                      }]
                      },
                      {
@@ -509,6 +523,33 @@ jQuery(document).ready(function($){
                         objSchedulesPlan.push(new SchedulePlan($(this)));
                     });
                 }
+            },
+            lessonTypeDataEvent: function(lessonType) {
+                var dataEvent = '';
+                switch (lessonType) {
+                    case 'T':
+                        dataEvent = 'event-1';
+                        break;
+                    case 'TP':
+                        dataEvent = 'event-4';
+                        break;
+                    case 'PL':
+                        dataEvent = 'event-2';
+                        break;
+                }
+                return dataEvent;
+            },
+            lessonPositionCss: function(start, end) {
+                var startTimestamp = getScheduleTimestamp(start);
+                var duration = getScheduleTimestamp(end) - startTimestamp;
+
+                var eventTop = this.eventSlotHeight*(startTimestamp - this.timelineStart)/this.timelineUnitDuration;
+                var eventHeight = this.eventSlotHeight*duration/this.timelineUnitDuration;
+
+                return {
+                    top: (eventTop - 1) +'px',
+                    height: (eventHeight + 1)+'px'
+                };
             }
         }
     });

@@ -55,8 +55,9 @@
                 <div class="top-info"><span>{{day.day}}</span></div>
 
                 <ul>
-                    <li v-for="lesson in day.lessons" class="single-event" v-bind:data-start="lesson.start" v-bind:data-end="lesson.end" data-content="event-abs-circuit" data-event="event-4">
+                    <li v-for="lesson in day.lessons" class="single-event" v-bind:data-start="lesson.start" v-bind:data-end="lesson.end" data-content="event-abs-circuit" v-bind:data-event="lessonTypeDataEvent(lesson.type)" v-bind:style="lessonPositionCss(lesson.start, lesson.end)">
                         <a href="#0">
+                            <span class="event-date">{{lesson.start}} - {{lesson.end}}</span>
                             <em class="event-name">{{lesson.name}}</em>
                             <div class="event-info">
                                 <div>Professor: {{lesson.teacher}} <br> Sala: {{lesson.room}} Turma: {{lesson.class}} </div>
