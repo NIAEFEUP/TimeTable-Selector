@@ -1,9 +1,18 @@
 version: "2.0"
 services:
-  server:
-    build: ./server
+  frontend:
+    build: ./frontend
     volumes:
-      - ./server:/usr/src/app
+      - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - 80:3000
+      - 80:8080
+    links:
+      - api
+  api:
+    build: ./api
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
