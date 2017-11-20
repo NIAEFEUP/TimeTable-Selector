@@ -1,3 +1,0 @@
-[submodule "scraper"]
-	path = scraper
-	url = https://github.com/sceptross/feup-timetable-scraper
