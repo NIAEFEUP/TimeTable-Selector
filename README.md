@@ -1,13 +1,10 @@
 # TimeTable-Selector
 
-## Running
+## Setup with Docker
 
-Change to the `server` directory and run the next command to install the project dependecies:
-```
-npm install
-```
+``` bash
+#build system for development
+docker-compose build
 
-Afterwards, to start the server, run:
-```
-node bin/www
-```
+#serve nginx proxy with webapp at localhost and api at localhost/api
+docker-compose up
